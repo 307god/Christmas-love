@@ -34,7 +34,7 @@ var Christmas = function() {
 
     //进入B场景
     observer.subscribe("pageB", function () {
-        new pageB(function() {
+        new pageB($pageB, function() {
             observer.publish("completeB");
         })
     });
@@ -72,24 +72,25 @@ function HTML5Audio(url, loop) {
     }
 }
 
+// $(function() {
+//     $("button:eq(1)").click(function() {
+//         //背景音乐
+//         var audio1 = HTML5Audio("http://www.sunnylinner.com/Games/Music/Media/407.mp3");
+//         audio1.end(function() {
+//             alert("音乐结束")
+//         })
+//     });
+//     $("button:eq(2)").click(function() {
+//         //循环播放
+//         HTML5Audio("http://www.sunnylinner.com/Games/Music/Media/407.mp3", true)
+//     })
+// });
+
+
 $(function() {
-    $("button:eq(1)").click(function() {
-        //背景音乐
+    $(".container").click(function () {
+        Christmas()
         var audio1 = HTML5Audio("http://www.sunnylinner.com/Games/Music/Media/407.mp3");
-        audio1.end(function() {
-            alert("音乐结束")
-        })
     });
-    $("button:eq(2)").click(function() {
-        //循环播放那
-        HTML5Audio("http://www.sunnylinner.com/Games/Music/Media/407.mp3", true)
-    })
-});
-
-
-$(function() {
-    // $("button:eq(0)").click(function () {
-    //     Christmas()
-    // })
-    Christmas()
+    // Christmas()
 });

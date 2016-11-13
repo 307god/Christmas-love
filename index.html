@@ -5,14 +5,16 @@
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
     <title>圣诞主题</title>
     <link rel='stylesheet' href='css/common.css' />
+    <link rel="stylesheet" href="css/pageB.css">
     <link rel="stylesheet" href="css/pageA.css">
-    <script src="http://www.sunnylinner.com/js/jquery-3.1.1.js"></script>
-    <script type="text/javascript" src="http://img.mukewang.com/down/55ac9ea30001ace700000000.js"></script>
+    <script src="js/jquery-3.1.1.js"></script>
+    <script src="js/jquery.transit.js"></script>
     <script src="js/pageA.js"></script>
     <script src="js/pageB.js"></script>
     <script src="js/pageC.js"></script>
     <script src="js/christmas.js"></script>
     <script src="js/observer.js"></script>
+    <script src="js/carousel.js"></script>
 </head>
 
 <body>
@@ -38,14 +40,25 @@
     </section>
     <!-- 第二幅画面 -->
     <section class="page-b bg-adaptive">
+        <!-- 猫 -->
+        <figure class="cat"></figure>
+        <!-- 圣诞男孩 -->
+        <figure class="christmas-boy-head"></figure>
+        <figure class="christmas-boy boy-walk"></figure>
+        <!-- 小女孩 -->
+        <figure class="girl"></figure>
+        <!-- 旋转木马 -->
+        <div id="carousel">
+            <figure id="spinner"></figure>
+        </div>
     </section>
     <!-- 第三幅画面 -->
     <section class="page-c bg-adaptive">
     </section>
 </section>
-<button>点击运行场景切换</button>
-<button>点击播放音乐</button>
-<button>点击播放循环音乐</button>
+<!--<button>点击运行场景切换</button>-->
+<!--<button>点击播放音乐</button>-->
+<!--<button>点击播放循环音乐</button>-->
 <script>
     //rem设置
     (function(doc, win) {
