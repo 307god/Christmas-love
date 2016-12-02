@@ -27,6 +27,10 @@ var Christmas = function() {
     //观察者
     var observer = new Observer();
 
+    var audio1 = $("#audio1")[0];
+    var audio2 = $("#audio2")[0];
+    audio1.play();
+
     //A场景页面
     new pageA($pageA, function () {
         observer.publish("completeA");
@@ -47,30 +51,33 @@ var Christmas = function() {
     //页面A-B场景切换
     observer.subscribe("completeA", function() {
         changePage($pageA, "effect-out", function() {
+            audio1.pause();
+            audio2.play();
             observer.publish("pageB");
         })
     });
     //页面B-C场景切换
     observer.subscribe("completeB", function() {
         changePage($pageC, "effect-in", function() {
+            audio2.pause();
             observer.publish("pageC");
         })
     })
 };
 
-function HTML5Audio(url, loop) {
-    var audio = new Audio(url);
-    audio.autoplay = true;
-    audio.loop = loop || false; //是否循环
-    audio.play();
-    return {
-        end: function(callback) {
-            audio.addEventListener('ended', function() {
-                callback()
-            }, false);
-        }
-    }
-}
+// function HTML5Audio(url, loop) {
+//     var audio = new Audio(url);
+//     audio.autoplay = true;
+//     audio.loop = loop || false; //是否循环
+//     audio.play();
+//     return {
+//         end: function(callback) {
+//             audio.addEventListener('ended', function() {
+//                 callback()
+//             }, false);
+//         }
+//     }
+// }
 
 // $(function() {
 //     $("button:eq(1)").click(function() {
@@ -86,11 +93,15 @@ function HTML5Audio(url, loop) {
 //     })
 // });
 
-
 $(function() {
+    var num = 0;
     $(".container").click(function () {
-        Christmas()
-        var audio1 = HTML5Audio("http://www.sunnylinner.com/Games/Music/Media/407.mp3");
+        if (num === 0)
+        Christmas();
+        num = 1;
     });
+    // $(".container").click(function () {
+    //     Christmas()
+    // });
     // Christmas()
 });
